@@ -1,0 +1,666 @@
+/* =========================================
+   VARIABLES
+========================================= */
+
+:root {
+    --background: #0b1020;
+    --background-light: #11182d;
+
+    --card: #151d35;
+    --card-hover: #1b2542;
+
+    --primary: #6c63ff;
+    --primary-light: #8b85ff;
+
+    --green: #35d07f;
+    --red: #ff5c70;
+
+    --text: #f5f7ff;
+    --text-secondary: #aab3cc;
+
+    --border: rgba(255, 255, 255, 0.08);
+
+    --radius: 16px;
+}
+
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 15% 10%,
+            rgba(108, 99, 255, 0.15),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(53, 208, 127, 0.06),
+            transparent 30%
+        ),
+        var(--background);
+
+    color: var(--text);
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   CONTENEDOR
+========================================= */
+
+.container {
+    width: min(1100px, 90%);
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   SECCIÓN PRINCIPAL
+========================================= */
+
+.section {
+    min-height: calc(100vh - 80px);
+
+    padding: 80px 0;
+
+    display: flex;
+    align-items: center;
+}
+
+
+/* =========================================
+   TÍTULO DE LA SECCIÓN
+========================================= */
+
+.section-title {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 18px;
+
+    margin-bottom: 40px;
+}
+
+
+.section-number {
+    color: var(--primary-light);
+
+    font-family: "Courier New", monospace;
+
+    font-size: 1.1rem;
+
+    font-weight: bold;
+
+    padding-top: 4px;
+}
+
+
+.section-title h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+
+    line-height: 1.15;
+
+    margin-bottom: 10px;
+}
+
+
+.section-title p {
+    color: var(--text-secondary);
+
+    max-width: 650px;
+
+    font-size: 1rem;
+}
+
+
+/* =========================================
+   SELECTOR DE VALIDADORES
+========================================= */
+
+.selector-container {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-bottom: 25px;
+}
+
+
+.validator-btn {
+    border: 1px solid var(--border);
+
+    background: var(--card);
+
+    color: var(--text-secondary);
+
+    padding: 12px 18px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 0.95rem;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        border 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+.validator-btn:hover {
+    background: var(--card-hover);
+
+    color: var(--text);
+
+    border-color:
+        rgba(108, 99, 255, 0.45);
+
+    transform: translateY(-2px);
+}
+
+
+.validator-btn.active {
+    background: var(--primary);
+
+    color: white;
+
+    border-color: var(--primary);
+
+    box-shadow:
+        0 8px 20px
+        rgba(108, 99, 255, 0.25);
+}
+
+
+/* =========================================
+   CONTENEDOR DEL VALIDADOR
+========================================= */
+
+.validator-grid {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 25px;
+}
+
+
+/* =========================================
+   TARJETA DEL VALIDADOR
+========================================= */
+
+.validator-card {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.035),
+            rgba(255, 255, 255, 0.015)
+        ),
+        var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    padding: 35px;
+
+    box-shadow:
+        0 20px 50px
+        rgba(0, 0, 0, 0.2);
+}
+
+
+/* =========================================
+   CABECERA DE LA TARJETA
+========================================= */
+
+.card-header {
+    margin-bottom: 30px;
+}
+
+
+.card-header > div {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+}
+
+
+.card-icon {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 50px;
+    height: 50px;
+
+    border-radius: 12px;
+
+    background:
+        rgba(108, 99, 255, 0.12);
+
+    font-size: 1.5rem;
+}
+
+
+.card-header h3 {
+    font-size: 1.35rem;
+}
+
+
+/* =========================================
+   LABEL
+========================================= */
+
+.validator-card label {
+    display: block;
+
+    margin-bottom: 9px;
+
+    color: var(--text-secondary);
+
+    font-size: 0.9rem;
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+   INPUT
+========================================= */
+
+.input-container {
+    position: relative;
+
+    width: 100%;
+}
+
+
+.input-container input {
+    width: 100%;
+
+    height: 55px;
+
+    padding:
+        0 55px
+        0 17px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 10px;
+
+    outline: none;
+
+    background: #0d1427;
+
+    color: var(--text);
+
+    font-size: 1rem;
+
+    transition:
+        border 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.input-container input::placeholder {
+    color: #66708a;
+}
+
+
+.input-container input:focus {
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(108, 99, 255, 0.12);
+}
+
+
+/* =========================================
+   ICONO DE ESTADO
+========================================= */
+
+#statusIcon {
+    position: absolute;
+
+    right: 17px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    font-size: 1.25rem;
+
+    font-weight: bold;
+}
+
+
+/* =========================================
+   RESULTADO
+========================================= */
+
+.result {
+    margin-top: 15px;
+
+    padding: 13px 16px;
+
+    border-radius: 9px;
+
+    font-size: 0.9rem;
+
+    border: 1px solid transparent;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease;
+}
+
+
+.result.neutral {
+    background:
+        rgba(255, 255, 255, 0.04);
+
+    color: var(--text-secondary);
+
+    border-color: var(--border);
+}
+
+
+.result.valid {
+    background:
+        rgba(53, 208, 127, 0.09);
+
+    color: var(--green);
+
+    border-color:
+        rgba(53, 208, 127, 0.2);
+}
+
+
+.result.invalid {
+    background:
+        rgba(255, 92, 112, 0.09);
+
+    color: var(--red);
+
+    border-color:
+        rgba(255, 92, 112, 0.2);
+}
+
+
+/* =========================================
+   REQUISITOS
+========================================= */
+
+.requirements {
+    margin-top: 25px;
+
+    padding: 18px;
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 10px;
+}
+
+
+.requirements h4 {
+    margin-bottom: 12px;
+
+    font-size: 0.95rem;
+}
+
+
+.requirement {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin: 8px 0;
+
+    color: var(--text-secondary);
+
+    font-size: 0.9rem;
+
+    transition:
+        color 0.25s ease;
+}
+
+
+.requirement span {
+    font-size: 1rem;
+
+    width: 18px;
+
+    text-align: center;
+}
+
+
+.requirement.valid {
+    color: var(--green);
+}
+
+
+.requirement.valid span {
+    color: var(--green);
+}
+
+
+/* =========================================
+   BOTÓN DE VALIDACIÓN
+========================================= */
+
+.test-button {
+    width: 100%;
+
+    margin-top: 25px;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--primary-light)
+        );
+
+    color: white;
+
+    font-size: 1rem;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.test-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(108, 99, 255, 0.25);
+}
+
+
+.test-button:active {
+    transform: translateY(0);
+}
+
+
+
+
+
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 800px) {
+
+    .section {
+        padding: 65px 0;
+    }
+
+
+    .validator-card {
+        padding: 28px;
+    }
+
+
+    .section-title h2 {
+        font-size: 2.2rem;
+    }
+
+}
+
+
+/* =========================================
+   TELÉFONOS
+========================================= */
+
+@media (max-width: 600px) {
+
+    .container {
+        width: 92%;
+    }
+
+
+    .section {
+        min-height: auto;
+
+        padding: 50px 0;
+    }
+
+
+    .section-title {
+        gap: 10px;
+
+        margin-bottom: 30px;
+    }
+
+
+    .section-number {
+        font-size: 0.9rem;
+    }
+
+
+    .section-title h2 {
+        font-size: 1.8rem;
+    }
+
+
+    .section-title p {
+        font-size: 0.9rem;
+    }
+
+
+    .selector-container {
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 8px;
+    }
+
+
+    .validator-btn {
+        width: 100%;
+
+        padding: 11px 8px;
+
+        font-size: 0.85rem;
+    }
+
+
+    .validator-card {
+        padding: 22px;
+    }
+
+
+    .card-header h3 {
+        font-size: 1.1rem;
+    }
+
+
+    .card-icon {
+        width: 43px;
+        height: 43px;
+
+        font-size: 1.3rem;
+    }
+
+
+    .input-container input {
+        height: 52px;
+
+        font-size: 0.9rem;
+    }
+
+    .footer-info {
+        align-items: flex-start;
+    }
+
+}
+
+
+/* =========================================
+   TELÉFONOS MUY PEQUEÑOS
+========================================= */
+
+@media (max-width: 380px) {
+
+    .selector-container {
+        grid-template-columns: 1fr;
+    } 
+    .validator-card { padding: 18px; 
+    }
+    .section-title h2 { font-size: 1.55rem; 
+    } 
+}
