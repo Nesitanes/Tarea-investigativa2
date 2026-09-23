@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <title>RegexLab | Expresiones Regulares</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+
+        <!-- validadores -->
+        <section id="validadores" class="section">
+
+            <div class="container">
+
+                <div class="section-title">
+
+
+                    <div>
+                        <h2>Prueba una expresión regular</h2>
+
+                        <p>
+                            Selecciona un validador e introduce un valor.
+                            La aplicación comprobará el texto automáticamente.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- selector -->
+                <div class="selector-container">
+
+                    <button class="validator-btn active"
+                        data-validator="password">
+                        <i data-lucide="lock"></i>
+                        Contraseña
+
+                    </button>
+
+                    <button class="validator-btn"
+                        data-validator="email">
+                        <i data-lucide="mail"></i>
+                         Correo
+
+                    </button>
+
+                    <button class="validator-btn"
+                        data-validator="phone">
+                        <i data-lucide="smartphone"></i>
+                         Teléfono
+
+                    </button>
+
+                    <button class="validator-btn"
+                        data-validator="name">
+                        <i data-lucide="user"></i>
+                        Nombre
+
+                    </button>
+
+                </div>
+
+
+                <!-- validador -->
+                <div class="validator-grid">
+
+                    <div class="validator-card">
+
+                        <div class="card-header">
+
+                            <div>
+
+                                <span class="card-icon" id="validatorIcon">
+                                    <i data-lucide="lock"></i>
+                                </span>
+
+                                <h3 id="validatorTitle">
+                                    Validador de contraseña
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+
+                        <label for="inputText" id="inputLabel">
+                            Introduce una contraseña
+                        </label>
+
+                        <div class="input-container">
+
+                            <input
+                                type="text"
+                                id="inputText"
+                                placeholder="Ejemplo: Hola1234"
+                                autocomplete="off"
+                            >
+
+                            <span id="statusIcon"></span>
+
+                        </div>
+
+
+                        <div id="result" class="result neutral">
+
+                            Introduce un valor para comenzar.
+
+                        </div>
+
+
+                        <!-- requisitos -->
+                        <div class="requirements" id="requirements">
+
+                            <h4>Requisitos:</h4>
+
+                            <div class="requirement" id="length">
+                                <span>○</span>
+                                Mínimo 8 caracteres
+                            </div>
+
+                            <div class="requirement" id="uppercase">
+                                <span>○</span>
+                                Una letra mayúscula
+                            </div>
+
+                            <div class="requirement" id="lowercase">
+                                <span>○</span>
+                                Una letra minúscula
+                            </div>
+
+                            <div class="requirement" id="number">
+                                <span>○</span>
+                                Un número
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+    <script src="js.js"></script>
+
+    <script>
+    lucide.createIcons();
+    </script>
+</body>
+
+</html>
